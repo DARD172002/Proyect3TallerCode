@@ -36,12 +36,16 @@ def apply_filters(audio_data):
 
     # Aplica los filtros en orden (todos los que estén activos)
     if var_lowpass.get():
+        print("filtro pasa baja")
         audio = signal.lfilter(b_low, a_low, audio, axis=0)
     if var_highpass.get():
+        print("filtro pasa altas")
         audio = signal.lfilter(b_high, a_high, audio, axis=0)
     if var_bandpass.get():
+        print("filtro pasa banda")
         audio = signal.lfilter(b_band, a_band, audio, axis=0)
     if var_bandstop.get():
+        print("filtro rechaza banda")
         audio = signal.lfilter(b_stop, a_stop, audio, axis=0)
     if var_custom.get():
         new_fc = slider_fc.get()
